@@ -28,131 +28,217 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnNoSeven = new Button();
-            btnNoEight = new Button();
-            BtnNoNine = new Button();
-            BtnNoFour = new Button();
-            BtnNoFive = new Button();
-            btnNoThree = new Button();
-            btnNoOne = new Button();
-            btnNoTwo = new Button();
-            btnNoSix = new Button();
             txtEquation = new TextBox();
+            btnMin = new Button();
+            btnDiv = new Button();
+            btnMult = new Button();
+            btnNoSix = new Button();
+            btnNoTwo = new Button();
+            btnNoOne = new Button();
+            btnNoThree = new Button();
+            BtnNoFive = new Button();
+            BtnNoFour = new Button();
+            BtnNoNine = new Button();
+            btnNoEight = new Button();
+            btnDel = new Button();
+            btnZero = new Button();
+            btnEqual = new Button();
+            btnPlus = new Button();
+            btnSeven = new Button();
             SuspendLayout();
             // 
-            // btnNoSeven
+            // txtEquation
             // 
-            btnNoSeven.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoSeven.Location = new Point(4, 84);
-            btnNoSeven.Name = "btnNoSeven";
-            btnNoSeven.Size = new Size(75, 23);
-            btnNoSeven.TabIndex = 0;
-            btnNoSeven.Text = "7";
-            btnNoSeven.UseVisualStyleBackColor = true;
-            btnNoSeven.Click += btnNoSeven_Click;
+            txtEquation.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            txtEquation.BackColor = SystemColors.Control;
+            txtEquation.BorderStyle = BorderStyle.None;
+            txtEquation.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEquation.Location = new Point(45, 36);
+            txtEquation.Name = "txtEquation";
+            txtEquation.Size = new Size(257, 26);
+            txtEquation.TabIndex = 9;
+            txtEquation.TextChanged += txtEquation_TextChanged;
+            txtEquation.KeyPress += txtEquation_KeyPress;
+            // 
+            // btnMin
+            // 
+            btnMin.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMin.Location = new Point(255, 236);
+            btnMin.Name = "btnMin";
+            btnMin.Size = new Size(75, 52);
+            btnMin.TabIndex = 24;
+            btnMin.Text = "-";
+            btnMin.UseVisualStyleBackColor = true;
+            btnMin.Click += btnMin_Click;
+            // 
+            // btnDiv
+            // 
+            btnDiv.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDiv.Location = new Point(255, 178);
+            btnDiv.Name = "btnDiv";
+            btnDiv.Size = new Size(75, 52);
+            btnDiv.TabIndex = 23;
+            btnDiv.Text = "÷";
+            btnDiv.UseVisualStyleBackColor = true;
+            btnDiv.Click += btnDiv_Click;
+            // 
+            // btnMult
+            // 
+            btnMult.Location = new Point(255, 120);
+            btnMult.Name = "btnMult";
+            btnMult.Size = new Size(75, 52);
+            btnMult.TabIndex = 22;
+            btnMult.Text = "X";
+            btnMult.UseVisualStyleBackColor = true;
+            btnMult.Click += btnMult_Click;
+            // 
+            // btnNoSix
+            // 
+            btnNoSix.Location = new Point(174, 178);
+            btnNoSix.Name = "btnNoSix";
+            btnNoSix.Size = new Size(75, 52);
+            btnNoSix.TabIndex = 21;
+            btnNoSix.Text = "6";
+            btnNoSix.UseVisualStyleBackColor = true;
+            btnNoSix.Click += btnNoSix_Click;
+            // 
+            // btnNoTwo
+            // 
+            btnNoTwo.Location = new Point(93, 236);
+            btnNoTwo.Name = "btnNoTwo";
+            btnNoTwo.Size = new Size(75, 52);
+            btnNoTwo.TabIndex = 20;
+            btnNoTwo.Text = "2";
+            btnNoTwo.UseVisualStyleBackColor = true;
+            btnNoTwo.Click += btnNoTwo_Click;
+            // 
+            // btnNoOne
+            // 
+            btnNoOne.Location = new Point(12, 236);
+            btnNoOne.Name = "btnNoOne";
+            btnNoOne.Size = new Size(75, 52);
+            btnNoOne.TabIndex = 19;
+            btnNoOne.Text = "1";
+            btnNoOne.UseVisualStyleBackColor = true;
+            btnNoOne.Click += btnNoOne_Click;
+            // 
+            // btnNoThree
+            // 
+            btnNoThree.Location = new Point(174, 236);
+            btnNoThree.Name = "btnNoThree";
+            btnNoThree.Size = new Size(75, 52);
+            btnNoThree.TabIndex = 18;
+            btnNoThree.Text = "3";
+            btnNoThree.UseVisualStyleBackColor = true;
+            btnNoThree.Click += btnNoThree_Click;
+            // 
+            // BtnNoFive
+            // 
+            BtnNoFive.Location = new Point(93, 178);
+            BtnNoFive.Name = "BtnNoFive";
+            BtnNoFive.Size = new Size(75, 52);
+            BtnNoFive.TabIndex = 17;
+            BtnNoFive.Text = "5";
+            BtnNoFive.UseVisualStyleBackColor = true;
+            BtnNoFive.Click += button1_Click;
+            // 
+            // BtnNoFour
+            // 
+            BtnNoFour.Location = new Point(12, 178);
+            BtnNoFour.Name = "BtnNoFour";
+            BtnNoFour.Size = new Size(75, 52);
+            BtnNoFour.TabIndex = 16;
+            BtnNoFour.Text = "4";
+            BtnNoFour.UseVisualStyleBackColor = true;
+            BtnNoFour.Click += BtnNoFour_Click_1;
+            // 
+            // BtnNoNine
+            // 
+            BtnNoNine.Location = new Point(174, 120);
+            BtnNoNine.Name = "BtnNoNine";
+            BtnNoNine.Size = new Size(75, 52);
+            BtnNoNine.TabIndex = 15;
+            BtnNoNine.Text = "9";
+            BtnNoNine.UseVisualStyleBackColor = true;
+            BtnNoNine.Click += BtnNoNine_Click;
             // 
             // btnNoEight
             // 
-            btnNoEight.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoEight.Location = new Point(85, 84);
+            btnNoEight.Location = new Point(93, 120);
             btnNoEight.Name = "btnNoEight";
-            btnNoEight.Size = new Size(75, 23);
-            btnNoEight.TabIndex = 1;
+            btnNoEight.Size = new Size(75, 52);
+            btnNoEight.TabIndex = 14;
             btnNoEight.Text = "8";
             btnNoEight.UseMnemonic = false;
             btnNoEight.UseVisualStyleBackColor = true;
             btnNoEight.Click += btnNoEight_Click;
             // 
-            // BtnNoNine
+            // btnDel
             // 
-            BtnNoNine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnNoNine.Location = new Point(166, 84);
-            BtnNoNine.Name = "BtnNoNine";
-            BtnNoNine.Size = new Size(75, 23);
-            BtnNoNine.TabIndex = 2;
-            BtnNoNine.Text = "9";
-            BtnNoNine.UseVisualStyleBackColor = true;
-            BtnNoNine.Click += BtnNoNine_Click;
+            btnDel.Location = new Point(12, 294);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(75, 52);
+            btnDel.TabIndex = 25;
+            btnDel.Text = "C";
+            btnDel.UseVisualStyleBackColor = true;
+            btnDel.Click += btnDel_Click;
             // 
-            // BtnNoFour
+            // btnZero
             // 
-            BtnNoFour.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnNoFour.Location = new Point(4, 113);
-            BtnNoFour.Name = "BtnNoFour";
-            BtnNoFour.Size = new Size(75, 23);
-            BtnNoFour.TabIndex = 3;
-            BtnNoFour.Text = "4";
-            BtnNoFour.UseVisualStyleBackColor = true;
-            BtnNoFour.Click += BtnNoFour_Click_1;
+            btnZero.Location = new Point(93, 294);
+            btnZero.Name = "btnZero";
+            btnZero.Size = new Size(75, 52);
+            btnZero.TabIndex = 26;
+            btnZero.Text = "0";
+            btnZero.UseVisualStyleBackColor = true;
+            btnZero.Click += btnZero_Click;
             // 
-            // BtnNoFive
+            // btnEqual
             // 
-            BtnNoFive.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnNoFive.Location = new Point(85, 113);
-            BtnNoFive.Name = "BtnNoFive";
-            BtnNoFive.Size = new Size(75, 23);
-            BtnNoFive.TabIndex = 4;
-            BtnNoFive.Text = "5";
-            BtnNoFive.UseVisualStyleBackColor = true;
-            BtnNoFive.Click += button1_Click;
+            btnEqual.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEqual.Location = new Point(174, 294);
+            btnEqual.Name = "btnEqual";
+            btnEqual.Size = new Size(75, 52);
+            btnEqual.TabIndex = 27;
+            btnEqual.Text = "=";
+            btnEqual.UseVisualStyleBackColor = true;
+            btnEqual.Click += btnEqual_Click;
             // 
-            // btnNoThree
+            // btnPlus
             // 
-            btnNoThree.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoThree.Location = new Point(166, 142);
-            btnNoThree.Name = "btnNoThree";
-            btnNoThree.Size = new Size(75, 23);
-            btnNoThree.TabIndex = 5;
-            btnNoThree.Text = "3";
-            btnNoThree.UseVisualStyleBackColor = true;
-            btnNoThree.Click += btnNoThree_Click;
+            btnPlus.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlus.Location = new Point(255, 294);
+            btnPlus.Name = "btnPlus";
+            btnPlus.Size = new Size(75, 52);
+            btnPlus.TabIndex = 28;
+            btnPlus.Text = "+";
+            btnPlus.UseVisualStyleBackColor = true;
+            btnPlus.Click += btnPlus_Click;
             // 
-            // btnNoOne
+            // btnSeven
             // 
-            btnNoOne.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoOne.Location = new Point(4, 142);
-            btnNoOne.Name = "btnNoOne";
-            btnNoOne.Size = new Size(75, 23);
-            btnNoOne.TabIndex = 6;
-            btnNoOne.Text = "1";
-            btnNoOne.UseVisualStyleBackColor = true;
-            btnNoOne.Click += btnNoOne_Click;
-            // 
-            // btnNoTwo
-            // 
-            btnNoTwo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoTwo.Location = new Point(85, 142);
-            btnNoTwo.Name = "btnNoTwo";
-            btnNoTwo.Size = new Size(75, 23);
-            btnNoTwo.TabIndex = 7;
-            btnNoTwo.Text = "2";
-            btnNoTwo.UseVisualStyleBackColor = true;
-            btnNoTwo.Click += btnNoTwo_Click;
-            // 
-            // btnNoSix
-            // 
-            btnNoSix.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNoSix.Location = new Point(166, 113);
-            btnNoSix.Name = "btnNoSix";
-            btnNoSix.Size = new Size(75, 23);
-            btnNoSix.TabIndex = 8;
-            btnNoSix.Text = "6";
-            btnNoSix.UseVisualStyleBackColor = true;
-            btnNoSix.Click += btnNoSix_Click;
-            // 
-            // txtEquation
-            // 
-            txtEquation.Location = new Point(37, 23);
-            txtEquation.Name = "txtEquation";
-            txtEquation.Size = new Size(180, 23);
-            txtEquation.TabIndex = 9;
+            btnSeven.Location = new Point(12, 120);
+            btnSeven.Name = "btnSeven";
+            btnSeven.Size = new Size(75, 52);
+            btnSeven.TabIndex = 29;
+            btnSeven.Text = "7";
+            btnSeven.UseMnemonic = false;
+            btnSeven.UseVisualStyleBackColor = true;
+            btnSeven.Click += btnNoSeven_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(249, 276);
-            Controls.Add(txtEquation);
+            ClientSize = new Size(338, 362);
+            Controls.Add(btnSeven);
+            Controls.Add(btnPlus);
+            Controls.Add(btnEqual);
+            Controls.Add(btnZero);
+            Controls.Add(btnDel);
+            Controls.Add(btnMin);
+            Controls.Add(btnDiv);
+            Controls.Add(btnMult);
             Controls.Add(btnNoSix);
             Controls.Add(btnNoTwo);
             Controls.Add(btnNoOne);
@@ -161,29 +247,32 @@
             Controls.Add(BtnNoFour);
             Controls.Add(BtnNoNine);
             Controls.Add(btnNoEight);
-            Controls.Add(btnNoSeven);
+            Controls.Add(txtEquation);
             Name = "Form1";
             Text = "Taschenrechner";
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void BtnNoFour_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
-
-        private Button btnNoSeven;
-        private Button btnNoEight;
-        private Button BtnNoNine;
-        private Button BtnNoFour;
-        private Button BtnNoFive;
-        private Button btnNoThree;
-        private Button btnNoOne;
-        private Button btnNoTwo;
-        private Button btnNoSix;
         private TextBox txtEquation;
+        private Button btnMin;
+        private Button btnDiv;
+        private Button btnMult;
+        private Button btnNoSix;
+        private Button btnNoTwo;
+        private Button btnNoOne;
+        private Button btnNoThree;
+        private Button BtnNoFive;
+        private Button BtnNoFour;
+        private Button BtnNoNine;
+        private Button btnNoEight;
+        private Button btnNoSeven;
+        private Button btnDel;
+        private Button btnZero;
+        private Button btnEqual;
+        private Button btnPlus;
+        private Button btnSeven;
     }
 }
