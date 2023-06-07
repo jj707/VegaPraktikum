@@ -1,7 +1,151 @@
 ﻿@page "/"
+@using System.Diagnostics;
 
 <PageTitle>Index</PageTitle>
 
+<style>
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+    .row-1 {
+        grid-row: 1;
+        grid-column: span 3;
+    }
+
+    .row-2 {
+        grid-row: 2;
+        grid-column: span 3;
+    }
+
+    .row-3 {
+        grid-row: 3;
+        grid-column: span 3;
+    }
+
+    .row-4 {
+        grid-row: 4;
+        grid-column: span 1;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+
+<style>
+    .input-box {
+        width: 214px;
+        height: 40px;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+        .input-box:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px #007bff;
+        }
+
+        .input-box::placeholder {
+            color: #999;
+        }
+
+</style>
+
+
+
+
+
+
+<input class="input-box" value="@EquationText" @oninput="UpdateEquationText" type="text" placeholder="Enter text here">
+
+
+<div class="button-container">
+    <div class="row-1">
+        <button type="button" @onclick='() => OnNumberButtonClick("7")'>7</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("8")'>8</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("9")'>9</button>
+        <button type="button" @onclick='() => OnOperatorClicked("/")'>÷</button>
+    </div>
+    <div class="row-2">
+        <button type="button" @onclick='() => OnNumberButtonClick("1")'>1</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("2")'>2</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("3")'>3</button>
+        <button type="button" @onclick='() => OnOperatorClicked("*")'>X</button>
+    </div>
+    <div class="row-3">
+        <button type="button" @onclick='() => OnNumberButtonClick("4")'>4</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("5")'>5</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("6")'>6</button>
+        <button type="button" @onclick='() => OnOperatorClicked("-")'>-</button>
+    </div>
+
+    <div class="row-4">
+        <button type="button" @onclick='() => OnDeleteClicked()'>C</button>
+        <button type="button" @onclick='() => OnNumberButtonClick("0")'>0</button>
+        <button type="button" @onclick='() => OnEqualsClicked()'>=</button>
+        <button type="button" @onclick='() => OnOperatorClicked("+")'>+</button>
+
+    </div>
+
+</div>
+
+@code {
+    public Calculator.Calculation calculation = new Calculator.Calculation();
+
+    public string EquationText;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            calculation.ValueChanged += EquationValueChanged;
+        }
+    }
+
+    public void EquationValueChanged(object sender, EventArgs e)
+    {
+        EquationText = calculation.EquationText;
+    }
+
+    public void OnNumberButtonClick(string numberStr)
+    {
+        Debug.WriteLine(numberStr);
+        calculation.UpdateEquation(numberStr);
+    }
+
+    public void OnOperatorClicked(string operatorStr)
+    {
+        Debug.WriteLine(operatorStr);
+        calculation.UpdateEquation(operatorStr);
+    }
+
+    private void UpdateEquationText(ChangeEventArgs e)
+    {
+        calculation.SetEquation(e.Value?.ToString());
+    }
+
+    public void OnDeleteClicked()
+    {
+        calculation.Clear();
+    }
+
+    public void OnEqualsClicked()
+    {
+        calculation.CalculateEquation();
+    }
+
+
+}

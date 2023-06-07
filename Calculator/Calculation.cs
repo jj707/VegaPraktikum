@@ -64,14 +64,14 @@ namespace Calculator
             EquationText = "";
         }
 
-        public void CalculateEquation(string equationText)
+        public void CalculateEquation()
         {
-            if (string.IsNullOrWhiteSpace(equationText))
+            if (string.IsNullOrWhiteSpace(_equationText))
             {
                 return;
             }
 
-            var result = Convert.ToDouble(new DataTable().Compute(equationText, null));
+            var result = Convert.ToDouble(new DataTable().Compute(_equationText, null));
 
             EquationText = result.ToString();
 

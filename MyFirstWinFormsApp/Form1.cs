@@ -103,7 +103,7 @@ namespace MyFirstWinFormsApp
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            calculation.CalculateEquation(txtEquation.Text);
+            calculation.CalculateEquation();
         }
 
         private void txtEquation_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,7 +120,7 @@ namespace MyFirstWinFormsApp
 
             if (e.KeyChar == (char)Keys.Enter)
             {
-                calculation.CalculateEquation(txtEquation.Text);
+                calculation.CalculateEquation();
             }
         }
 
