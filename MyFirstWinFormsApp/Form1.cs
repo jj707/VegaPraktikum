@@ -17,50 +17,42 @@ namespace MyFirstWinFormsApp
 
         private void btnNoOne_Click(object sender, EventArgs e)
         {
-            number += "1";
-            txtEquation.Text = number;
+            UpdateEquation("1");
         }
 
         private void btnNoTwo_Click(object sender, EventArgs e)
         {
-            number += "2";
-            txtEquation.Text = number;
+            UpdateEquation("2");
         }
 
         private void btnNoThree_Click(object sender, EventArgs e)
         {
-            number += "3";
-            txtEquation.Text = number;
+            UpdateEquation("3");
         }
 
         private void BtnNoFour_Click_1(object sender, EventArgs e)
         {
-            number += "4";
-            txtEquation.Text = number;
+            UpdateEquation("4");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            number += "5";
-            txtEquation.Text = number;
+            UpdateEquation("5");
         }
 
         private void btnNoSix_Click(object sender, EventArgs e)
         {
-            number += "6";
-            txtEquation.Text = number;
+            UpdateEquation("6");
         }
 
         private void btnNoSeven_Click(object sender, EventArgs e)
         {
-            number += "7";
-            txtEquation.Text = number;
+            UpdateEquation("7");
         }
 
         private void btnNoEight_Click(object sender, EventArgs e)
         {
-            number += "8";
-            txtEquation.Text = number;
+            UpdateEquation("8");
         }
 
         private void BtnNoNine_Click(object sender, EventArgs e)
@@ -101,30 +93,32 @@ namespace MyFirstWinFormsApp
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            // Definieren des Regex-Musters zum Aufteilen der Gleichung
-            string pattern = @"([-+*/])";
-
-            // Aufteilen der Gleichung anhand des Regex-Musters
-            string[] parts = Regex.Split(txtEquation.Text, pattern);
-
-            var result = CalculateEquation(parts);
-
-            number = result;
-            txtEquation.Text = result.ToString();
-
+            CalculateEquation(txtEquation.Text);
         }
 
         private void UpdateEquation(string value)
         {
-            if (canWriteOperator(value, txtEquation.Text))
+            var isOperator = IsOperator(value.Last());
+            if (!isOperator || (isOperator && canWriteOperator(value, txtEquation.Text)))
             {
                 number += value;
                 txtEquation.Text = number;
             }
         }
 
-        private string CalculateEquation(string[] parts)
+        private void CalculateEquation(string equationText)
         {
+            if (string.IsNullOrWhiteSpace(equationText))
+            {
+                return;
+            }
+
+            // Definieren des Regex-Musters zum Aufteilen der Gleichung
+            string pattern = @"([-+*/])";
+
+            // Aufteilen der Gleichung anhand des Regex-Musters
+            string[] parts = Regex.Split(equationText, pattern);
+
             // Durchführung der arithmetischen Operationen
             for (int i = 1; i < parts.Length; i += 2)
             {
@@ -150,10 +144,16 @@ namespace MyFirstWinFormsApp
                 }
             }
 
+            if (parts.Length == 1)
+            {
+                return;
+            }
+
             // Das letzte berechnete Element ist das Endergebnis
             var result = parts[parts.Length - 2];
 
-            return result;
+            number = result;
+            txtEquation.Text = result.ToString();
         }
 
         private void txtEquation_KeyPress(object sender, KeyPressEventArgs e)
@@ -167,11 +167,19 @@ namespace MyFirstWinFormsApp
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                CalculateEquation(txtEquation.Text);
+            }
         }
 
         private void txtEquation_TextChanged(object sender, EventArgs e)
         {
             number = txtEquation.Text;
+            txtEquation.Focus();
+            txtEquation.Select(txtEquation.Text.Length, 0);
+
         }
 
         private bool canWriteOperator(string value, string equationText)
